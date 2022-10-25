@@ -1,0 +1,72 @@
+/**
+ * En la clase Bicicleta se encuentra toda la información de esta
+ * 
+ * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
+ */
+public class Bicicleta {
+    private String nombreBicicleta;
+    private double peso;
+
+    /**
+     * Constructor para objetos de la clase Bicicleta
+     */
+    public Bicicleta(String nombreBicicleta, double peso) {
+        this.nombreBicicleta = nombreBicicleta;
+        this.peso = peso;
+    }
+
+    /**
+     * Devuelve el atributo nombre de la clase Bicicleta
+     * @return El atributo nombre de la Bicicleta
+     */
+    public String getNombreBicicleta() {
+        return nombreBicicleta;
+    }
+
+    /**
+     * Asigna un nombre a la Bicicleta
+     * @param nombreBicicleta    Nombre que se le va asignar a la Bicicleta
+     */
+    public void setNombreBicicleta(String nombreBicicleta) {
+        this.nombreBicicleta = nombreBicicleta;
+    }
+
+     /**
+     * Devuelve el atributo peso de la clase Bicicleta
+     * @return El atributo peso de la Bicicleta
+     */
+    public double getPeso() {
+        return peso;
+    }
+
+    /**
+     * Asigna un peso a la Bicicleta
+     * @param peso    Peso que se le va asignar a la Bicicleta
+     */
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+    
+    /**
+     * Calcula la velocidad que es usada por un ciclista en particular en una etapa en concreto
+     * @return la velocidad calculada
+     */
+    public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
+        return (double) Math.round((ciclista.getHabilidad() * 100) / (this.peso * etapa.getDificultad()));
+    }
+    
+    /**
+     * Calcula el tiempo necesario (en minutos) para terminar la etapa cuando es usada por un ciclista en particular en una etapa en concreto
+     * @return el tiempo necesario para terminar una etapa
+     */
+    public double calcularTiempoNecesario(Etapa etapa, Ciclista ciclista) {
+        return (double) Math.round(((etapa.getDistancia()) / this.calcularVelocidad(ciclista, etapa)) * 60);
+    }
+
+    public String toString() {
+        return "<bicicleta:" + getNombreBicicleta() + "> <peso:" + getPeso() + ")>";
+    }
+
+
+
+}
