@@ -14,6 +14,8 @@ public class Ciclista {
     private List<Resultado> resultados;
     private Equipo equipo;
 
+    private double tiempoEtapa;
+
     /**
      * Constructor para objetos de la clase Ciclista
      *
@@ -28,10 +30,12 @@ public class Ciclista {
         this.energia = energia;
         resultados = new ArrayList<Resultado>();
         this.equipo = equipo;
+        tiempoEtapa = -1;
     }
 
     /**
      * Devuelve el atributo nombre de la clase Ciclista
+     *
      * @return El atributo nombre del Ciclista
      */
     public String getNombreCiclista() {
@@ -40,6 +44,7 @@ public class Ciclista {
 
     /**
      * Asigna un nombre al Ciclista
+     *
      * @param nombreCiclista Nombre que se le va asignar al Ciclista
      */
     public void setNombreCiclista(String nombreCiclista) {
@@ -48,6 +53,7 @@ public class Ciclista {
 
     /**
      * Devuelve la bicibleta de cada Ciclista
+     *
      * @return La bicicleta del Ciclista
      */
     public Bicicleta getBicicleta() {
@@ -56,6 +62,7 @@ public class Ciclista {
 
     /**
      * Asigna una bicicleta al Ciclista
+     *
      * @param bicicleta Bicicleta que se le va asignar al Ciclista
      */
     public void setBicicleta(Bicicleta bicicleta) {
@@ -64,6 +71,7 @@ public class Ciclista {
 
     /**
      * Devuelve la habilidad de cada Ciclista
+     *
      * @return El atributo habilidad del Ciclista
      */
     public double getHabilidad() {
@@ -72,6 +80,7 @@ public class Ciclista {
 
     /**
      * Asigna una habilidad al Ciclista
+     *
      * @param habilidad Habilidad que se le va asignar al Ciclista
      */
     public void setHabilidad(double habilidad) {
@@ -80,6 +89,7 @@ public class Ciclista {
 
     /**
      * Devuelve la energia de cada Ciclista
+     *
      * @return El atributo energia del Ciclista
      */
     public double getEnergia() {
@@ -88,6 +98,7 @@ public class Ciclista {
 
     /**
      * Asigna una energia al Ciclista
+     *
      * @param energia Energia que se le va asignar al Ciclista
      */
     public void setEnergia(double energia) {
@@ -96,6 +107,7 @@ public class Ciclista {
 
     /**
      * Devuelve la lista de resultados que tenemos del Ciclista
+     *
      * @return La lista con los resultados
      */
     public List<Resultado> getResultados() {
@@ -104,6 +116,7 @@ public class Ciclista {
 
     /**
      * Asigna a la lista de resultados del Ciclista
+     *
      * @param resultados La lista resultados que se va asignar al Ciclista
      */
     public void setResultados(List<Resultado> resultados) {
@@ -112,6 +125,7 @@ public class Ciclista {
 
     /**
      * Devuelve el equipo de cada Ciclista
+     *
      * @return El equipo del Ciclista
      */
     public Equipo getEquipo() {
@@ -120,6 +134,7 @@ public class Ciclista {
 
     /**
      * Asigna un equipo al Ciclista
+     *
      * @param equipo Equipo que se le va asignar al Ciclista
      */
     public void setEquipo(Equipo equipo) {
@@ -127,7 +142,26 @@ public class Ciclista {
     }
 
     /**
+     * Devuelve el tiempo necesario de una etapa
+     *
+     * @return El tiempo de la etapa
+     */
+    public double getTiempoEtapa() {
+        return tiempoEtapa;
+    }
+
+    /**
+     * Asigna el tiempo necesario a una etapa
+     *
+     * @param tiempoEtapa Tiempo necesario que se va a asignar a cada ciclista en una etapa
+     */
+    public void setTiempoEtapa(double tiempoEtapa) {
+        this.tiempoEtapa = tiempoEtapa;
+    }
+
+    /**
      * Gestiona y proporciona informacion sobre el resultado obtenido en cualquier etapa
+     *
      * @param etapa Etapa de la que se obtiene la información
      * @return El resultado del ciclista en cada etapa
      */
@@ -144,6 +178,7 @@ public class Ciclista {
 
     /**
      * Comprobar si el ciclista ha abandonado o no
+     *
      * @return Abandona o no
      */
     public boolean comprobarAbandono() {
@@ -153,13 +188,9 @@ public class Ciclista {
         return abandono;
     }
 
-    //estos 3 metodos funcionan bien, en el caso de que en resultados solo se guarden datos cuando el ciclista
-    //participa en la carrera
-    //si tienes o no que guardar en la lista de resultados los correspondientes a etapas en las que no participa
-    //solo hasta la etapa a la que ha llegado ,las restantes no hace falta
-
     /**
      * Devuelve el total de etapas en la que ha participado el Ciclista
+     *
      * @return El número de etapas
      */
     public double getTotalEtapas() {
@@ -168,7 +199,8 @@ public class Ciclista {
 
     /**
      * Devuelve el número de etapas que ha completado
-     * @return  El número de etapas terminadas
+     *
+     * @return El número de etapas terminadas
      */
     public double getEtapasTerminadas() {
         double terminadas = 0;
@@ -181,7 +213,8 @@ public class Ciclista {
 
     /**
      * Devuelve el tiempo que ha tardado en terminar una etapa
-     * @return  El tiempo en terminar una etapa
+     *
+     * @return El tiempo en terminar una etapa
      */
     public double getTiempoTerminadas() {
         double tiempo = 0;
@@ -194,6 +227,7 @@ public class Ciclista {
 
     /**
      * Devuelve en que etapa ha terminado
+     *
      * @return Etapa en la que finaliza
      */
     public Etapa getEtapaAbandonada() {
@@ -207,15 +241,18 @@ public class Ciclista {
 
     /**
      * Obtiene el tiempo que ha necesitado para terminar una etapa
-     * @param tiempo    El tiempo con el que inicia
-     * @param etapa     La etapa en la que se encuentra
+     *
+     * @param tiempo El tiempo con el que inicia
+     * @param etapa  La etapa en la que se encuentra
      */
     public void participar(double tiempo, Etapa etapa) {
         if (energia >= 0.0) {
             double energiaRestante = energia - tiempo;
             boolean terminada = true;
-            if (energiaRestante < 0)
+            if (energiaRestante < 0) {
                 terminada = false;
+                tiempo = (double) Math.round(energiaRestante * 100) / 100;
+            }
 
             Resultado nuevo = new Resultado(etapa, tiempo, terminada);
             resultados.add(nuevo);
@@ -225,6 +262,7 @@ public class Ciclista {
 
     /**
      * Muestra en una cadena los atributos del ciclista
+     *
      * @return Un string con los atributos y características principales del ciclista
      */
     public String toString() {

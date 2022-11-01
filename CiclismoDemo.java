@@ -13,8 +13,8 @@ public class CiclismoDemo
 {
     public static void main(String[] args) {
         Organizacion organizacion=new Organizacion(new ComparadorDificultadEtapa());
-        //DatosCampeonatoCompleto initData = new DatosCampeonatoCompleto(organizacion);
-        DatosCampeonatoAbandonos initdata = new DatosCampeonatoAbandonos(organizacion);
+        DatosCampeonatoCompleto initData = new DatosCampeonatoCompleto(organizacion);
+        //DatosCampeonatoAbandonos initdata = new DatosCampeonatoAbandonos(organizacion);
             
         organizacion.gestionarCampeonato();
     }    

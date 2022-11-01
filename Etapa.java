@@ -1,6 +1,6 @@
 /**
  * En la clase Etapa se encuentra toda la información de esta
- * 
+ *
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
 public class Etapa {
@@ -11,9 +11,10 @@ public class Etapa {
 
     /**
      * Constructor para objetos de la clase Etapa
-     * @param nombreEtapa   Nombre de cada etapa
-     * @param dificultad    Dificultad que corresponde a cada etapa
-     * @param distancia     Distancia que tiene cada etapa
+     *
+     * @param nombreEtapa Nombre de cada etapa
+     * @param dificultad  Dificultad que corresponde a cada etapa
+     * @param distancia   Distancia que tiene cada etapa
      */
     public Etapa(String nombreEtapa, double dificultad, int distancia) {
         this.nombreEtapa = nombreEtapa;
@@ -23,6 +24,7 @@ public class Etapa {
 
     /**
      * Devuelve el atributo nombre de la clase Etapa
+     *
      * @return El atributo nombre de la Etapa
      */
     public String getNombreEtapa() {
@@ -31,7 +33,8 @@ public class Etapa {
 
     /**
      * Asigna un nombre a la Etapa
-     * @param nombreEtapa    Nombre que se le va asignar a la Etapa
+     *
+     * @param nombreEtapa Nombre que se le va asignar a la Etapa
      */
     public void setNombreEtapa(String nombreEtapa) {
         this.nombreEtapa = nombreEtapa;
@@ -39,6 +42,7 @@ public class Etapa {
 
     /**
      * Devuelve el atributo dificultad de la clase Etapa
+     *
      * @return El atributo dificultad de la Etapa
      */
     public double getDificultad() {
@@ -47,7 +51,8 @@ public class Etapa {
 
     /**
      * Asigna una dificultad a la Etapa
-     * @param dificultad    Dificultad que se le va asignar a la Etapa
+     *
+     * @param dificultad Dificultad que se le va asignar a la Etapa
      */
     public void setDificultad(double dificultad) {
         this.dificultad = dificultad;
@@ -55,6 +60,7 @@ public class Etapa {
 
     /**
      * Devuelve el atributo distancia de la clase Etapa
+     *
      * @return El atributo distancia de la Etapa
      */
     public int getDistancia() {
@@ -63,7 +69,8 @@ public class Etapa {
 
     /**
      * Asigna una distancia a la Etapa
-     * @param distancia     Distancia que se le va asignar a la Etapa
+     *
+     * @param distancia Distancia que se le va asignar a la Etapa
      */
     public void setDistancia(int distancia) {
         this.distancia = distancia;
@@ -71,6 +78,7 @@ public class Etapa {
 
     /**
      * Muestra en una cadena los atributos de la etapa
+     *
      * @return Un string con los atributos y características principales de la etapa
      */
     public String toString() {

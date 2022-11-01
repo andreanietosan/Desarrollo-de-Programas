@@ -11,9 +11,10 @@ public class Resultado {
 
     /**
      * Constructor para objetos de la clase Resultado
-     * @param etapa     Etapa en la que participa
-     * @param tiempo    Tiempo necesario en cada etapa
-     * @param etapaTerminada    Etapas que ha terminado
+     *
+     * @param etapa          Etapa en la que participa
+     * @param tiempo         Tiempo necesario en cada etapa
+     * @param etapaTerminada Etapas que ha terminado
      */
     public Resultado(Etapa etapa, double tiempo, boolean etapaTerminada) {
         this.etapa = etapa;
@@ -23,7 +24,8 @@ public class Resultado {
 
     /**
      * Devuelve el atributo etapa de la clase Resultado
-     * @return  El atributo etapa de Resultado
+     *
+     * @return El atributo etapa de Resultado
      */
     public Etapa getEtapa() {
         return etapa;
@@ -31,7 +33,8 @@ public class Resultado {
 
     /**
      * Asigna una etapa a Resultado
-     * @param etapa     Etapa que se le va asignar a Resultado
+     *
+     * @param etapa Etapa que se le va asignar a Resultado
      */
     public void setEtapa(Etapa etapa) {
         this.etapa = etapa;
@@ -39,7 +42,8 @@ public class Resultado {
 
     /**
      * Devuelve el atributo tiempo de la clase Resultado
-     * @return  El atributo tiempo de Resultado
+     *
+     * @return El atributo tiempo de Resultado
      */
     public double getTiempo() {
         return tiempo;
@@ -47,7 +51,8 @@ public class Resultado {
 
     /**
      * Asigna una tiempo a Resultado
-     * @param tiempo    Tiempo que se le va asignar a Resultado
+     *
+     * @param tiempo Tiempo que se le va asignar a Resultado
      */
     public void setTiempo(double tiempo) {
         this.tiempo = tiempo;
@@ -55,7 +60,8 @@ public class Resultado {
 
     /**
      * Devuelve si una etapa ha terminado o no de la clase Resultado
-     * @return  Terminada o no
+     *
+     * @return Terminada o no
      */
     public boolean isEtapaTerminada() {
         return etapaTerminada;
@@ -63,7 +69,8 @@ public class Resultado {
 
     /**
      * Asigna una etapa terminada a Resultado
-     * @param etapaTerminada    Etapa que ha terminado
+     *
+     * @param etapaTerminada Etapa que ha terminado
      */
     public void setEtapaTerminada(boolean etapaTerminada) {
         this.etapaTerminada = etapaTerminada;
