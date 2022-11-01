@@ -2,35 +2,58 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * En la clase Ciclista se encuentra toda la información de esta
+ *
+ * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
+ */
 public class Equipo {
     private String nombreEquipo;
     private ArrayList<Ciclista> ciclistas;
     private ArrayList<Ciclista> ciclistasAbandonados;
     private ArrayList<Bicicleta> bicicletas;
-    private Comparator<Ciclista> compCiclistas;
-    boolean descCiclista;
-    private Comparator<Bicicleta> compBicicletas;
-    boolean descBicicleta;
+    private Comparator compCiclistas;
+    private Comparator compBicicletas;
 
-    public Equipo(String nombreEquipo, Comparator<Ciclista> compCiclistas, boolean descCiclista, Comparator<Bicicleta> compBicicletas, boolean descBicicleta) {
+    /**
+     * Constructor para objetos de la clase Equipo
+     *
+     * @param nombreEquipo   Nombre del equipo
+     * @param compCiclistas  Comparadores de los ciclistas de cada equipo
+     * @param compBicicletas Comparadores de las bicicletas de cada equipo
+     */
+    public Equipo(String nombreEquipo, Comparator compCiclistas, Comparator compBicicletas) {
         this.nombreEquipo = nombreEquipo;
         ciclistas = new ArrayList<Ciclista>();
         ciclistasAbandonados = new ArrayList<Ciclista>();
         bicicletas = new ArrayList<Bicicleta>();
         this.compCiclistas = compCiclistas;
-        this.descCiclista = descCiclista;
         this.compBicicletas = compBicicletas;
-        this.descBicicleta = descBicicleta;
     }
 
+    /**
+     * Devuelve el atributo nombre de la clase Equipo
+     *
+     * @return El atributo nombre del Equipo
+     */
     public String getNombreEquipo() {
         return nombreEquipo;
     }
 
+    /**
+     * Asigna un nombre al Equipo
+     *
+     * @param nombreEquipo Nombre que se le va asignar al Equipo
+     */
     public void setNombreEquipo(String nombreEquipo) {
         this.nombreEquipo = nombreEquipo;
     }
 
+    /**
+     * Devuelve
+     *
+     * @return
+     */
     public ArrayList<Ciclista> getCiclistas() {
         return ciclistas;
     }
@@ -59,33 +82,43 @@ public class Equipo {
         ciclistas.add(ciclista);
     }
 
-    public void setCompCiclistas(Comparator<Ciclista> compCiclistas, boolean desc) {
-        this.compCiclistas = compCiclistas;
-        this.descCiclista = desc;
+    public double getTiempoTotal() {
+        double tiempo = 0;
+        for (Ciclista c : ciclistas)
+            tiempo += c.getTiempoTerminadas();
+        return tiempo;
     }
 
-    public void setCompBicicletas(Comparator<Bicicleta> compBicicletas, boolean desc) {
-        this.compBicicletas = compBicicletas;
-        this.descBicicleta = desc;
+    public void ordenarCiclistas() {
+        Collections.sort(ciclistas, this.compCiclistas);
+    }
+
+    public void ordenarBicicletas() {
+        Collections.sort(bicicletas, this.compBicicletas);
+    }
+
+    public void anadirBicicleta(Bicicleta b) {
+        bicicletas.add(b);
+    }
+
+    public void anadirCiclista(Ciclista c) {
+        ciclistas.add(c);
+    }
+
+    public void anadirCiclistaAbandonado(Ciclista c) {
+        ciclistasAbandonados.add(c);
     }
 
 
-    public void ordenarCiclista()
-    {
-        if (descCiclista)
-            Collections.sort(ciclistas,Collections.reverseOrder(compCiclistas));
-        else
-            Collections.sort(ciclistas,compCiclistas);
+    public double calcularMediaEquipo() {
+        double media = 0;
+        for (Ciclista c : getCiclistas())
+            media += c.getTiempoTerminadas();
+        media /= getCiclistas().size();
+        return (double) Math.round(media * 100) / 100;
     }
 
-    public void ordenarBicicleta()
-    {
-        if (descBicicleta)
-            Collections.sort(bicicletas,Collections.reverseOrder(compBicicletas));
-        else
-            Collections.sort(bicicletas,compBicicletas);
+    public String toString() {
+        return "%%% " + getNombreEquipo() + " %%% Media Minutos de Ciclistas sin abandonar " + getTiempoTotal() + " %%%";
     }
-
-
-
 }

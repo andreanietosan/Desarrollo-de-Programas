@@ -11,6 +11,9 @@ public class Etapa {
 
     /**
      * Constructor para objetos de la clase Etapa
+     * @param nombreEtapa   Nombre de cada etapa
+     * @param dificultad    Dificultad que corresponde a cada etapa
+     * @param distancia     Distancia que tiene cada etapa
      */
     public Etapa(String nombreEtapa, double dificultad, int distancia) {
         this.nombreEtapa = nombreEtapa;

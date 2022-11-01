@@ -9,6 +9,8 @@ public class Bicicleta {
 
     /**
      * Constructor para objetos de la clase Bicicleta
+     * @param nombreBicicleta   Nombre que tiene cada bicicleta
+     * @param peso  Peso que corresponde a cada bicicleta
      */
     public Bicicleta(String nombreBicicleta, double peso) {
         this.nombreBicicleta = nombreBicicleta;
@@ -46,23 +48,31 @@ public class Bicicleta {
     public void setPeso(double peso) {
         this.peso = peso;
     }
-    
+
     /**
      * Calcula la velocidad que es usada por un ciclista en particular en una etapa en concreto
-     * @return la velocidad calculada
+     * @param ciclista  Ciclista del que se usa su habilidad
+     * @param etapa     Etapa de la que se usa la dificultad
+     * @return La velocidad calculada
      */
     public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
-        return (double) Math.round((ciclista.getHabilidad() * 100) / (this.peso * etapa.getDificultad()));
-    }
-    
-    /**
-     * Calcula el tiempo necesario (en minutos) para terminar la etapa cuando es usada por un ciclista en particular en una etapa en concreto
-     * @return el tiempo necesario para terminar una etapa
-     */
-    public double calcularTiempoNecesario(Etapa etapa, Ciclista ciclista) {
-        return (double) Math.round(((etapa.getDistancia()) / this.calcularVelocidad(ciclista, etapa)) * 60);
+        return (double) Math.round((ciclista.getHabilidad() * 100) / (this.peso * etapa.getDificultad())*100.0)/100.0;
     }
 
+    /**
+     * Calcula el tiempo necesario (en minutos) para terminar la etapa cuando es usada por un ciclista en particular en una etapa en concreto
+     * @param etapa     Etapa de la que se usa su distancia
+     * @param ciclista  Ciclista que se usa para calcular la velocidad (anteriormente calculada)
+     * @return El tiempo necesario para terminar una etapa
+     */
+    public double calcularTiempoNecesario(Etapa etapa, Ciclista ciclista) {
+        return (double) Math.round((etapa.getDistancia() / this.calcularVelocidad(ciclista, etapa) * 60)*100)/100;
+    }
+
+    /**
+     * Muestra en una cadena los atributos de la bicibleta
+     * @return Un string con los atributos y características principales de la bicibleta
+     */
     public String toString() {
         return "<bicicleta:" + getNombreBicicleta() + "> <peso:" + getPeso() + ")>";
     }

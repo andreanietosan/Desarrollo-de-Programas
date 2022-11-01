@@ -12,13 +12,11 @@ import java.util.*;
 public class CiclismoDemo
 {
     public static void main(String[] args) {
-        //Organizacion organizacion=new Organizacion(new ComparadorDificultadEtapa());
-        //DatosCampeonatoCompleto initdata = new DatosCampeonatoCompleto(organizacion);
-        Organizacion organizacion=new Organizacion();
-        DatosCampeonatoCompleto initData = new DatosCampeonatoCompleto(organizacion);
-        //DatosCampeonatoAbandonos initdata = new DatosCampeonatoAbandonos(organizacion);
+        Organizacion organizacion=new Organizacion(new ComparadorDificultadEtapa());
+        //DatosCampeonatoCompleto initData = new DatosCampeonatoCompleto(organizacion);
+        DatosCampeonatoAbandonos initdata = new DatosCampeonatoAbandonos(organizacion);
             
-        //organizacion.gestionarCampeonato();
+        organizacion.gestionarCampeonato();
     }    
 
 }
