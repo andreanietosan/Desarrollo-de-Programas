@@ -7,6 +7,7 @@ import java.util.Comparator;
  */
 public class ComparadorNombreCiclista implements Comparator<Ciclista> {
     public int compare(Ciclista c1, Ciclista c2) {
+
         return (c2.getNombreCiclista().compareTo(c1.getNombreCiclista()));
     }
 }
