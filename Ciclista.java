@@ -166,14 +166,13 @@ public class Ciclista {
      * @return El resultado del ciclista en cada etapa
      */
     public Resultado getResultado(Etapa etapa) {
-        Resultado resultado = null;
-        for (Resultado res : resultados) {
-            if (res.getEtapa() == etapa) {
-                resultado = res;
-                break;
-            }
-        }
-        return resultado;
+        Resultado res = null;
+        int i = 0;
+        while (i < resultados.size() && resultados.get(i).getEtapa() != etapa)
+            i++;
+        if (resultados.get(i).getEtapa() == etapa)
+            res = resultados.get(i);
+        return res;
     }
 
     /**
