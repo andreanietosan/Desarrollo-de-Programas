@@ -6,8 +6,8 @@
 public class Etapa {
 
     private String nombreEtapa;
-    private double dificultad;
-    private int distancia;
+    private Dificultad dificultad;
+    private Distancia distancia;
 
     /**
      * Constructor para objetos de la clase Etapa
@@ -16,7 +16,7 @@ public class Etapa {
      * @param dificultad  Dificultad que corresponde a cada etapa
      * @param distancia   Distancia que tiene cada etapa
      */
-    public Etapa(String nombreEtapa, double dificultad, int distancia) {
+    public Etapa(String nombreEtapa, Dificultad dificultad, Distancia distancia) {
         this.nombreEtapa = nombreEtapa;
         this.dificultad = dificultad;
         this.distancia = distancia;
@@ -45,7 +45,7 @@ public class Etapa {
      *
      * @return El atributo dificultad de la Etapa
      */
-    public double getDificultad() {
+    public Dificultad getDificultad() {
         return dificultad;
     }
 
@@ -54,7 +54,7 @@ public class Etapa {
      *
      * @param dificultad Dificultad que se le va asignar a la Etapa
      */
-    public void setDificultad(double dificultad) {
+    public void setDificultad(Dificultad dificultad) {
         this.dificultad = dificultad;
     }
 
@@ -63,7 +63,7 @@ public class Etapa {
      *
      * @return El atributo distancia de la Etapa
      */
-    public int getDistancia() {
+    public Distancia getDistancia() {
         return distancia;
     }
 
@@ -72,8 +72,17 @@ public class Etapa {
      *
      * @param distancia Distancia que se le va asignar a la Etapa
      */
-    public void setDistancia(int distancia) {
+    public void setDistancia(Distancia distancia) {
         this.distancia = distancia;
+    }
+
+
+    public double getValorDificultad() {
+        return getDificultad().getValor();
+    }
+
+    public double getValorDistancia() {
+        return getDistancia().getValor();
     }
 
     /**

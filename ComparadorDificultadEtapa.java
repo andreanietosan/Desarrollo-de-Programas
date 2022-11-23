@@ -7,9 +7,9 @@ import java.util.Comparator;
  */
 public class ComparadorDificultadEtapa implements Comparator<Etapa> {
     public int compare(Etapa e1, Etapa e2) {
-        if (e1.getDificultad() == e2.getDificultad())
+        if (e1.getValorDificultad() == e2.getValorDificultad())
             return new ComparadorDistanciaEtapa().compare(e1, e2);
-        else if (e1.getDificultad() > e2.getDificultad())
+        else if (e1.getValorDificultad() > e2.getValorDificultad())
             return 1;
         else
             return -1;

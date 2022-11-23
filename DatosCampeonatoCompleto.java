@@ -10,12 +10,12 @@ public class DatosCampeonatoCompleto {
 
     private void initData(Organizacion organizacion) {
         //constructor de etapas pide ( String nombre, double dificultad, double distancia)
-        Etapa etapa1 = new Etapa("sencilla larga", 0.9, 200);
-        Etapa etapa2 = new Etapa("compleja corta", 1.1, 150);
-        Etapa etapa3 = new Etapa("normal intermedia", 1.0, 175);
-        Etapa etapa4 = new Etapa("sencilla intermedia", 0.9, 175);
-        Etapa etapa5 = new Etapa("compleja intermedia", 1.1, 175);
-        Etapa etapa6 = new Etapa("normal larga", 1.0, 200);
+        Etapa etapa1 = new Etapa("sencilla larga", Dificultad.SENCILLA, Distancia.LARGA);
+        Etapa etapa2 = new Etapa("compleja corta", Dificultad.COMPLEJA, Distancia.CORTA);
+        Etapa etapa3 = new Etapa("normal intermedia", Dificultad.NORMAL, Distancia.INTERMEDIA);
+        Etapa etapa4 = new Etapa("sencilla intermedia", Dificultad.SENCILLA, Distancia.INTERMEDIA);
+        Etapa etapa5 = new Etapa("compleja intermedia", Dificultad.COMPLEJA, Distancia.INTERMEDIA);
+        Etapa etapa6 = new Etapa("normal larga", Dificultad.NORMAL, Distancia.LARGA);
         organizacion.anadirEtapa(etapa1);
         organizacion.anadirEtapa(etapa2);
         organizacion.anadirEtapa(etapa3);

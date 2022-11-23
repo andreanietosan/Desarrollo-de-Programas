@@ -5,7 +5,7 @@
  */
 public class Bicicleta {
     private String nombreBicicleta;
-    private double peso;
+    private Peso peso;
 
     /**
      * Constructor para objetos de la clase Bicicleta
@@ -13,7 +13,7 @@ public class Bicicleta {
      * @param nombreBicicleta Nombre que tiene cada bicicleta
      * @param peso            Peso que corresponde a cada bicicleta
      */
-    public Bicicleta(String nombreBicicleta, double peso) {
+    public Bicicleta(String nombreBicicleta, Peso peso) {
         this.nombreBicicleta = nombreBicicleta;
         this.peso = peso;
     }
@@ -41,7 +41,7 @@ public class Bicicleta {
      *
      * @return El atributo peso de la Bicicleta
      */
-    public double getPeso() {
+    public Peso getPeso() {
         return peso;
     }
 
@@ -50,8 +50,12 @@ public class Bicicleta {
      *
      * @param peso Peso que se le va asignar a la Bicicleta
      */
-    public void setPeso(double peso) {
+    public void setPeso(Peso peso) {
         this.peso = peso;
+    }
+
+    public double getValorPeso() {
+        return getPeso().getValor();
     }
 
     /**
@@ -62,7 +66,7 @@ public class Bicicleta {
      * @return La velocidad calculada
      */
     public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
-        return (double) Math.round((ciclista.getHabilidad() * 100) / (this.peso * etapa.getDificultad()) * 100.0) / 100.0;
+        return (double) Math.round((ciclista.getHabilidad() * 100) / (peso.getValor() * etapa.getValorDificultad()) * 100.0) / 100.0;
     }
 
     /**
@@ -73,7 +77,7 @@ public class Bicicleta {
      * @return El tiempo necesario para terminar una etapa
      */
     public double calcularTiempoNecesario(Etapa etapa, Ciclista ciclista) {
-        return (double) Math.round((etapa.getDistancia() / this.calcularVelocidad(ciclista, etapa) * 60) * 100) / 100;
+        return (double) Math.round((etapa.getValorDistancia() / this.calcularVelocidad(ciclista, etapa) * 60) * 100) / 100;
     }
 
     /**
