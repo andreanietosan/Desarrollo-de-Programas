@@ -6,10 +6,10 @@ import java.util.List;
  *
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
-public class Ciclista {
+public abstract class Ciclista implements CiclistaInterface {
     private String nombreCiclista;
     private Bicicleta bicicleta;
-    private double habilidad;
+    private Habilidad habilidad;
     private double energia;
     private List<Resultado> resultados;
     private Equipo equipo;
@@ -24,7 +24,7 @@ public class Ciclista {
      * @param energia        Energia que tiene cada ciclista
      * @param equipo         Equipo al que pertenece cada ciclista
      */
-    public Ciclista(String nombreCiclista, double habilidad, double energia, Equipo equipo) {
+    public Ciclista(String nombreCiclista, Habilidad habilidad, double energia, Equipo equipo) {
         this.nombreCiclista = nombreCiclista;
         this.habilidad = habilidad;
         this.energia = energia;
@@ -74,7 +74,7 @@ public class Ciclista {
      *
      * @return El atributo habilidad del Ciclista
      */
-    public double getHabilidad() {
+    public Habilidad getHabilidad() {
         return habilidad;
     }
 
@@ -83,7 +83,7 @@ public class Ciclista {
      *
      * @param habilidad Habilidad que se le va asignar al Ciclista
      */
-    public void setHabilidad(double habilidad) {
+    public void setHabilidad(Habilidad habilidad) {
         this.habilidad = habilidad;
     }
 
@@ -157,6 +157,10 @@ public class Ciclista {
      */
     public void setTiempoEtapa(double tiempoEtapa) {
         this.tiempoEtapa = tiempoEtapa;
+    }
+
+    public double getValorHabilidad() {
+        return getHabilidad().getValor();
     }
 
     /**
@@ -237,6 +241,8 @@ public class Ciclista {
             etapa = ultimo.getEtapa();
         return etapa;
     }
+
+    public abstract double Destreza();
 
     /**
      * Obtiene el tiempo que ha necesitado para terminar una etapa

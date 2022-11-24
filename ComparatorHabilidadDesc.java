@@ -7,9 +7,9 @@ import java.util.Comparator;
  */
 public class ComparatorHabilidadDesc implements Comparator<Ciclista> {
     public int compare(Ciclista c1, Ciclista c2) {
-        if (c1.getHabilidad() == c2.getHabilidad())
+        if (c1.getValorHabilidad() == c2.getValorHabilidad())
             return new ComparadorNombreCiclista().compare(c1, c2);
-        else if (c1.getHabilidad() < c2.getHabilidad())
+        else if (c1.getValorHabilidad() < c2.getValorHabilidad())
             return 1;
         else
             return -1;
