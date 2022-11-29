@@ -3,7 +3,7 @@
  *
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
-public class Etapa {
+public class Etapa implements EtapaInterface{
 
     private String nombreEtapa;
     private Dificultad dificultad;
@@ -94,4 +94,13 @@ public class Etapa {
         return "<etapa:" + getNombreEtapa() + "> <dificultad:" + getDificultad() + "> <distancia:" + getDistancia() + ")>";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Etapa))
+            return false;
+        Etapa other = (Etapa) obj;
+        return getNombreEtapa().equals(other.getNombreEtapa());
+    }
 }

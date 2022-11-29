@@ -164,7 +164,7 @@ public class Organizacion {
                 System.out.println("******************************** Ciclistas que van a competir en " + etapas.get(i).getNombreEtapa() + " *******************************");
                 System.out.println("**********************************************************************************************************");
 
-                ordenarCiclistas();
+                Collections.sort(ciclistaCarrera, new ComparadorNombreCiclista().reversed());
 
                 for (Ciclista c : ciclistaCarrera) {
                     c.setTiempoEtapa(c.getBicicleta().calcularTiempoNecesario(etapas.get(i), c));
@@ -185,7 +185,7 @@ public class Organizacion {
                     System.out.print(ciclistaCarrera.get(j).getBicicleta().toString());
                     double tiempoEmpleado = ciclistaCarrera.get(j).getEnergia();
                     System.out.println(" en etapa " + etapas.get(i).getNombreEtapa());
-                    System.out.println("+++ Con estas condiciones el ciclista " + ciclistaCarrera.get(j).getNombreCiclista() + " con la bicicleta " + ciclistaCarrera.get(j).getBicicleta().getNombreBicicleta() + " alcanza una velocidadad de " + ciclistaCarrera.get(j).getBicicleta().calcularVelocidad(ciclistaCarrera.get(j), etapas.get(i)) + " km/hora +++");
+                    System.out.println("+++ Con estas condiciones el ciclista " + ciclistaCarrera.get(j).getNombreCiclista() + " con la bicicleta " + ciclistaCarrera.get(j).getBicicleta().getNombreBicicleta()+ " alcanza una velocidad de " + ciclistaCarrera.get(j).getBicicleta().calcularVelocidad(ciclistaCarrera.get(j), etapas.get(i)) + " km/hora +++");
 
                     if (ciclistaCarrera.get(j).getEnergia() > ciclistaCarrera.get(j).getTiempoEtapa())
                         System.out.println("+++ " + ciclistaCarrera.get(j).getNombreCiclista() + " termina la etapa en " + ciclistaCarrera.get(j).getTiempoEtapa() + " minutos +++");
@@ -197,6 +197,10 @@ public class Organizacion {
                     }
                     System.out.println("+++ La energía del ciclista " + ciclistaCarrera.get(j).getNombreCiclista() + " tras la carrera es " + ciclistaCarrera.get(j).getEnergia() + " +++");
                     System.out.println("@@@");
+                    if (ciclistaCarrera.get(j).getTipo() == "CiclistaEstrella"){
+                        System.out.println("+++ La popularidad del ciclista "+ciclistaCarrera.get(j).getNombreCiclista()+ " ha aumentado  y ahora su nivel de popularidad es de:   unidades\n" + "@@@");
+                    }
+
                 }
 
                 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");

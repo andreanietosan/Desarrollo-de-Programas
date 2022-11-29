@@ -1,9 +1,9 @@
 public class BicicletaRapida extends BicicletaNormal {
     private double velocidadExtra;
 
-    public BicicletaRapida(String nombreBicicleta, Peso peso) {
+    public BicicletaRapida(String nombreBicicleta, Peso peso, double velocidadExtra) {
         super(nombreBicicleta, peso);
-        this.velocidadExtra = 0.0;
+        this.velocidadExtra = velocidadExtra;
     }
 
     public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
@@ -12,7 +12,13 @@ public class BicicletaRapida extends BicicletaNormal {
         return extra;
     }
 
+    public String getTipo() {
+        return "BicicletaRapida";
+    }
 
+    public String toString() {
+        return super.toString() + "<velocidad extra: " + velocidadExtra + ">";
+    }
 
 }
 

@@ -1,7 +1,7 @@
 public enum Peso {
-    LIGERA("LIGERA", 7.35),
-    NORMAL("NORMAL", 7.50),
-    PESADA("PESADA", 7.85);
+    LIGERA("Ligera", 7.35),
+    NORMAL("Normal", 7.50),
+    PESADA("Pesada", 7.85);
 
     private final String nombre;
     private final double valor;
@@ -21,6 +21,6 @@ public enum Peso {
 
     @Override
     public String toString() {
-        return getNombre() + "(original:" + getValor() + ")";
+        return getNombre() + " (valor:" + getValor() + ")";
     }
 }

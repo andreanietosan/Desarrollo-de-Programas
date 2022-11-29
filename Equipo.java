@@ -7,7 +7,7 @@ import java.util.Comparator;
  *
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
-public class Equipo {
+public class Equipo implements EquipoInterface {
     private String nombreEquipo;
     private ArrayList<Ciclista> ciclistas;
     private ArrayList<Ciclista> ciclistasAbandonados;
@@ -31,92 +31,42 @@ public class Equipo {
         this.compBicicletas = compBicicletas;
     }
 
-    /**
-     * Devuelve el atributo nombre de la clase Equipo
-     *
-     * @return El atributo nombre del Equipo
-     */
     public String getNombreEquipo() {
         return nombreEquipo;
     }
 
-    /**
-     * Asigna un nombre al Equipo
-     *
-     * @param nombreEquipo Nombre que se le va asignar al Equipo
-     */
     public void setNombreEquipo(String nombreEquipo) {
         this.nombreEquipo = nombreEquipo;
     }
 
-    /**
-     * Devuelve la lista de ciclistas de cada equipo
-     *
-     * @return La lista de Ciclistas
-     */
     public ArrayList<Ciclista> getCiclistas() {
         return ciclistas;
     }
 
-    /**
-     * Asigna la lista de ciclistas de cada equipo
-     *
-     * @param ciclistas Lista de ciclistas que tiene asignada cada Equipo
-     */
     public void setCiclistas(ArrayList<Ciclista> ciclistas) {
         this.ciclistas = ciclistas;
     }
 
-    /**
-     * Devuelve la lista de ciclistas abandonados de cada equipo
-     *
-     * @return La lista de ciclistas abandonados
-     */
     public ArrayList<Ciclista> getCiclistasAbandonados() {
         return ciclistasAbandonados;
     }
 
-    /**
-     * Asigna la lista de ciclistas abandonados de cada equipo
-     *
-     * @param ciclistasAbandonados Lista de ciclistas abandonados que tiene asignado cada Equipo
-     */
     public void setCiclistasAbandonados(ArrayList<Ciclista> ciclistasAbandonados) {
         this.ciclistasAbandonados = ciclistasAbandonados;
     }
 
-    /**
-     * Devuelve la lista de bicicletas de cada equipo
-     *
-     * @return La lista de bicicletas
-     */
     public ArrayList<Bicicleta> getBicicletas() {
         return bicicletas;
     }
 
-    /**
-     * Asigna la lista de bicicletas de cada equipo
-     *
-     * @param bicicletas Lista de bicicletas que tiene asignado cada Equipo
-     */
     public void setBicicletas(ArrayList<Bicicleta> bicicletas) {
         this.bicicletas = bicicletas;
     }
 
-    /**
-     * Asigna una bicicleta a cada ciclista de cada equipo
-     *
-     * @param ciclista Ciclista al que se le va asignar la bicicleta
-     */
     public void asignarBicicleta(Ciclista ciclista) {
         ciclistas.add(ciclista);
     }
 
-    /**
-     * Devuelve el tiempo total acumulado de cada ciclista en una etapa
-     *
-     * @return El tiempo total
-     */
     public double getTiempoTotal() {
         double tiempo = 0;
         for (Ciclista c : ciclistas)
@@ -124,52 +74,26 @@ public class Equipo {
         return tiempo;
     }
 
-    /**
-     * Ordena a los ciclistas de cada equipo
-     */
     public void ordenarCiclistas() {
         Collections.sort(ciclistas, this.compCiclistas);
     }
 
-    /**
-     * Ordena a los ciclistas de cada equipo
-     */
     public void ordenarBicicletas() {
         Collections.sort(bicicletas, this.compBicicletas);
     }
 
-    /**
-     * Añade la bicicleta de cada equipo
-     *
-     * @param b Bicicleta añadida a cada equipo
-     */
     public void anadirBicicleta(Bicicleta b) {
         bicicletas.add(b);
     }
 
-    /**
-     * Añade al ciclista a cada equipo
-     *
-     * @param c Ciclista añadido a cada equipo
-     */
     public void anadirCiclista(Ciclista c) {
         ciclistas.add(c);
     }
 
-    /**
-     * Añade al ciclista abandonado de cada equipo
-     *
-     * @param c Ciclista abandonado añadido a cada equipo
-     */
     public void anadirCiclistaAbandonado(Ciclista c) {
         ciclistasAbandonados.add(c);
     }
 
-    /**
-     * Calcula el tiempo medio de cada equipo al finalizar la competición
-     *
-     * @return Tiempo medio de cada equipo
-     */
     public double calcularMediaEquipo() {
         double media = 0;
         int numCiclista = 0;
@@ -189,5 +113,15 @@ public class Equipo {
      */
     public String toString() {
         return "%%% " + getNombreEquipo() + " %%% Media Minutos de Ciclistas sin abandonar " + getTiempoTotal() + " %%%";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Etapa))
+            return false;
+        Equipo other = (Equipo) obj;
+        return getNombreEquipo().equals(other.getNombreEquipo());
     }
 }

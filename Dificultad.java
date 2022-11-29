@@ -1,7 +1,7 @@
 public enum Dificultad {
-    SENCILLA("SENCILLA", 0.9),
-    NORMAL("NORMAL", 1.0),
-    COMPLEJA("COMPLEJA", 1.1);
+    SENCILLA("Sencilla", 0.9),
+    NORMAL("Normal", 1.0),
+    COMPLEJA("Compleja", 1.1);
 
     private final String nombre;
     private final double valor;
@@ -21,6 +21,6 @@ public enum Dificultad {
 
     @Override
     public String toString() {
-        return getNombre() + "(original:" + getValor() + ")";
+        return getNombre() + " (valor:" + getValor() + ")";
     }
 }

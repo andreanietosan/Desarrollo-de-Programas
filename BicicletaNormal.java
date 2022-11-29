@@ -38,7 +38,7 @@ public class BicicletaNormal implements Bicicleta {
         return getPeso().getValor();
     }
 
-    public String getTipo(){
+    public String getTipo() {
         return "BicicletaNormal";
     }
 
@@ -56,7 +56,7 @@ public class BicicletaNormal implements Bicicleta {
      * @return Un string con los atributos y características principales de la bicibleta
      */
     public String toString() {
-        return "<bicicleta:" + getNombreBicicleta() + "> <peso:" + getPeso() + ")>";
+        return "<" + getTipo() + ">: <peso:" + getPeso() + ")>";
     }
 
 

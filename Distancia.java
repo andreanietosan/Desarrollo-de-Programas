@@ -1,12 +1,12 @@
 public enum Distancia {
-    CORTA("CORTA", 150),
-    INTERMEDIA("INTERMEDIA", 200),
-    LARGA("LARGA", 225);
+    CORTA("Corta", 150.0),
+    INTERMEDIA("Intermedia", 200.0),
+    LARGA("Larga", 225.0);
 
     private final String nombre;
-    private final int valor;
+    private final double valor;
 
-    Distancia(String nombre, int valor) {
+    Distancia(String nombre, double valor) {
         this.nombre = nombre;
         this.valor = valor;
     }
@@ -15,12 +15,12 @@ public enum Distancia {
         return nombre;
     }
 
-    public int getValor() {
+    public double getValor() {
         return valor;
     }
 
     @Override
     public String toString() {
-        return getNombre() + "(original:" + getValor() + ")";
+        return getNombre() + " (valor:" + getValor();
     }
 }
