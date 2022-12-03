@@ -24,8 +24,6 @@ public interface Bicicleta {
 
     public double getValorPeso();
 
-    public String getTipo();
-
     /**
      * Calcula la velocidad que es usada por un ciclista en particular en una etapa en concreto
      *

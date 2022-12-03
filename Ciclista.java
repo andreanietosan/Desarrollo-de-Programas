@@ -13,7 +13,6 @@ public abstract class Ciclista implements CiclistaInterface {
     private double energia;
     private List<Resultado> resultados;
     private Equipo equipo;
-
     private double tiempoEtapa;
 
     /**
@@ -98,13 +97,27 @@ public abstract class Ciclista implements CiclistaInterface {
         return getHabilidad().getValor();
     }
 
+//    public Resultado getResultado(Etapa etapa) {
+//        Resultado res = null;
+//        int i = 0;
+//        while (i < resultados.size() && resultados.get(i).getEtapa() != etapa)
+//            i++;
+//        if (resultados.get(i).getEtapa() == etapa)
+//            res = resultados.get(i);
+//        return res;
+//    }
+
     public Resultado getResultado(Etapa etapa) {
         Resultado res = null;
+        boolean enc = false;
         int i = 0;
-        while (i < resultados.size() && resultados.get(i).getEtapa() != etapa)
+        while (i < resultados.size() && !enc) {
+            if (resultados.get(i).getEtapa().equals(etapa)) {
+                res = resultados.get(i);
+                enc = true;
+            }
             i++;
-        if (resultados.get(i).getEtapa() == etapa)
-            res = resultados.get(i);
+        }
         return res;
     }
 
@@ -146,9 +159,20 @@ public abstract class Ciclista implements CiclistaInterface {
         return etapa;
     }
 
-    public abstract String getTipo();
+    public boolean resultadoEtapaAbandono(Etapa etapa) {
+        boolean contiene = false;
+        int i = 0;
+        while (i < resultados.size() && !contiene) {
+            if (resultados.get(i).getEtapa().getNombreEtapa().equals(etapa.getNombreEtapa()))
+                contiene = true;
+            i++;
+        }
+        return contiene;
+    }
+
 
     public abstract double Destreza();
+
 
     public void participar(double tiempo, Etapa etapa) {
         if (energia >= 0.0) {
@@ -158,11 +182,35 @@ public abstract class Ciclista implements CiclistaInterface {
                 terminada = false;
                 tiempo = (double) Math.round(energiaRestante * 100) / 100;
             }
-
             Resultado nuevo = new Resultado(etapa, tiempo, terminada);
             resultados.add(nuevo);
             energia = energiaRestante;
         }
+    }
+
+    /**
+     * En este método se realiza toda la competición de la organización, en ella se ve en detalle cada etapa, quien participa, las posiciones, los premios finales, si hay algun abandonado o no y la clasificación final de ciclistas y equipos
+     */
+    public void correr(Etapa etapa) {
+
+        System.out.print(toString());
+        System.out.println(" con bicicleta");
+        System.out.print(getBicicleta().toString());
+        double tiempoEmpleado = getEnergia();
+        System.out.println(" en etapa " + etapa.getNombreEtapa());
+        System.out.println("+++ Con estas condiciones el ciclista " + getNombreCiclista() + " con la bicicleta " + getBicicleta().getNombreBicicleta() + " alcanza una velocidad de " + getBicicleta().calcularVelocidad(this, etapa) + " km/hora +++");
+
+        if (getEnergia() > getTiempoEtapa())
+            System.out.println("+++ " + getNombreCiclista() + " termina la etapa en " + getTiempoEtapa() + " minutos +++");
+        participar(getTiempoEtapa(), etapa);
+
+        if (tiempoEmpleado < getTiempoEtapa()) {
+            System.out.println("¡¡¡ El ciclista " + getNombreCiclista() + " se quedó sin energia a falta de " + getEnergia() + " minutos para terminar !!!");
+            System.out.println("¡¡¡ En el momento de quedarse sin energia llevaba en carrera " + tiempoEmpleado + " minutos !!!");
+        }
+        System.out.println("+++ La energía del ciclista " + getNombreCiclista() + " tras la carrera es " + getEnergia() + " +++");
+        System.out.println("@@@");
+
     }
 
     /**
@@ -171,7 +219,7 @@ public abstract class Ciclista implements CiclistaInterface {
      * @return Un string con los atributos y características principales del ciclista
      */
     public String toString() {
-        return "<"+getTipo() +":"+ getNombreCiclista() + "> <energía:" + getEnergia() + "> <habilidad:" + getHabilidad() + "> <tiempo acumulado sin abandonar:" + getTiempoTerminadas() + "> <abandonado:" + comprobarAbandono() + ">";
+        return "<" + getClass().getName() + ":" + getNombreCiclista() + "> <energía:" + getEnergia() + "> <habilidad:" + getHabilidad() + "> <tiempo acumulado sin abandonar:" + getTiempoTerminadas() + "> <abandonado:" + comprobarAbandono() + ">";
     }
 
 

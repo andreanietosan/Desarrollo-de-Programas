@@ -6,14 +6,11 @@ public class BicicletaRapida extends BicicletaNormal {
         this.velocidadExtra = velocidadExtra;
     }
 
+    @Override
     public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
         double resultado = super.calcularVelocidad(ciclista, etapa);
-        double extra = Math.round(resultado + velocidadExtra);
-        return extra;
-    }
-
-    public String getTipo() {
-        return "BicicletaRapida";
+        double extra = resultado + velocidadExtra;
+        return (double) Math.round(extra * 100) / 100;
     }
 
     public String toString() {

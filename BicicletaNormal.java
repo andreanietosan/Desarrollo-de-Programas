@@ -38,16 +38,14 @@ public class BicicletaNormal implements Bicicleta {
         return getPeso().getValor();
     }
 
-    public String getTipo() {
-        return "BicicletaNormal";
-    }
 
     public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
-        return (double) Math.round((ciclista.getValorHabilidad() * 100) / (peso.getValor() * etapa.getValorDificultad()) * 100.0) / 100.0;
+        return (double) Math.round((ciclista.getValorHabilidad() * 100) / (peso.getValor() * etapa.getValorDificultad())*100)/100;
     }
 
     public double calcularTiempoNecesario(Etapa etapa, Ciclista ciclista) {
-        return (double) Math.round((etapa.getValorDistancia() / this.calcularVelocidad(ciclista, etapa) * 60) * 100) / 100;
+        return (double) Math.round((etapa.getValorDistancia() / this.calcularVelocidad(ciclista, etapa) * 60)*100)/100;
+
     }
 
     /**
@@ -56,7 +54,7 @@ public class BicicletaNormal implements Bicicleta {
      * @return Un string con los atributos y características principales de la bicibleta
      */
     public String toString() {
-        return "<" + getTipo() + ">: <peso:" + getPeso() + ")>";
+        return "<" + getClass().getName() + ">: <peso:" + getPeso() + ")>";
     }
 
 

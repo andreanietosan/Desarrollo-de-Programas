@@ -146,6 +146,7 @@ public interface CiclistaInterface {
 
     public abstract double Destreza();
 
+
     /**
      * Obtiene el tiempo que ha necesitado para terminar una etapa
      *
@@ -153,4 +154,5 @@ public interface CiclistaInterface {
      * @param etapa  La etapa en la que se encuentra
      */
     public void participar(double tiempo, Etapa etapa);
+
 }

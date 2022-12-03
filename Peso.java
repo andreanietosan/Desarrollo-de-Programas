@@ -21,6 +21,6 @@ public enum Peso {
 
     @Override
     public String toString() {
-        return getNombre() + " (valor:" + getValor() + ")";
+        return getNombre() + " (valor:" + getValor();
     }
 }

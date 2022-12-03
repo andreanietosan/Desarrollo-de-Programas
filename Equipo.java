@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 
 /**
  * En la clase Ciclista se encuentra toda la información de esta
@@ -104,6 +105,25 @@ public class Equipo implements EquipoInterface {
             }
         media /= numCiclista;
         return (double) Math.round(media * 100) / 100;
+    }
+
+    /**
+     * enviar a la organizacion los ciclistas y las bicicletas
+     * se envia a la organizacion cuando no haya abandonado
+     */
+    public ArrayList<Ciclista> enviarACarrera() {
+        ArrayList<Ciclista> aux = new ArrayList<>();
+        int contBici=0;
+        for (Ciclista ciclista : ciclistas) {
+            if (!ciclista.comprobarAbandono()){
+                ciclista.setBicicleta(bicicletas.get(contBici));
+                aux.add(ciclista);
+                contBici+=1;
+            }
+            else
+                anadirCiclistaAbandonado(ciclista);
+        }
+        return aux;
     }
 
     /**

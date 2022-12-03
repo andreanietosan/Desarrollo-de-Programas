@@ -3,12 +3,13 @@ public class CiclistaExperimentado extends Ciclista {
         super(nombreCiclista, habilidad, energia, equipo);
     }
 
+    @Override
     public double Destreza() {
         //destreza = (((habilidad del Ciclista + 4) / 130) * 10;
-        return (double) Math.round((((super.getValorHabilidad() + 4) / 130) * 10) * 100) / 100;
+        return (((getValorHabilidad() + 4.0) / 130) * 10);
     }
 
-    public String getTipo(){
+    public String getTipo() {
         return "CiclistaExperimentado";
     }
 }

@@ -3,13 +3,10 @@ public class CiclistaNovato extends Ciclista {
         super(nombreCiclista, habilidad, energia, equipo);
     }
 
+    @Override
     public double Destreza() {
         //destreza = (((habilidad del Ciclista + 2) / 120) * 10;
-        return (double) Math.round((((super.getValorHabilidad() + 2) / 120) * 10) * 100) / 100;
-    }
-
-    public String getTipo(){
-        return "CiclistaNovato";
+        return (((getValorHabilidad() + 2.0) / 120) * 10);
     }
 
 }

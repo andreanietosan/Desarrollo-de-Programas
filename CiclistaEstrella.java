@@ -6,13 +6,10 @@ public class CiclistaEstrella extends Ciclista {
         this.SerPopular = 6;
     }
 
+    @Override
     public double Destreza() {
         //destreza = (((habilidad del Ciclista + 6) / 140) * 10;
-        return (double) Math.round((((super.getValorHabilidad() + 6) / 140) * 10) * 100) / 100;
-    }
-
-    public String getTipo() {
-        return "CiclistaEstrella";
+        return (double) (((getValorHabilidad() + 6.0) / 140) * 10);
     }
 
     public int getSerPopular() {
@@ -23,17 +20,23 @@ public class CiclistaEstrella extends Ciclista {
         SerPopular = serPopular;
     }
 
-    public int popularidad(int serPopular) {
-        if (getTotalEtapas() < 1)
-            return serPopular = 6;
-        else if (super.getTiempoEtapa() < 160.0)
-            return serPopular += 4;
-        else return serPopular -= 1;
+    @Override
+    public void correr(Etapa etapa) {
+        super.correr(etapa);
 
+        if (getTotalEtapas() < 1)
+            SerPopular = 6;
+        else if (super.getTiempoEtapa() < 160.0) {
+            SerPopular += 4;
+            System.out.println("+++ La popularidad del ciclista " + getNombreCiclista() + " ha aumentado y ahora su nivel de popularidad es de: " + getSerPopular() + " unidades\n" + "@@@");
+        } else {
+            SerPopular -= 1;
+            System.out.println("--- La popularidad del ciclista " + getNombreCiclista() + " ha disminuido y ahora su nivel de popularidad es de: " + getSerPopular() + " unidades\n" + "@@@");
+        }
     }
 
     public String toString() {
-        return super.toString() + " <popularidad: " + popularidad(getSerPopular()) + ">";
+        return super.toString() + " <popularidad: " + getSerPopular() + ">";
     }
 
 }

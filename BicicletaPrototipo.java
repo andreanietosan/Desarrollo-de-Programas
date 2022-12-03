@@ -4,12 +4,11 @@ public class BicicletaPrototipo extends BicicletaNormal {
         super(nombreBicicleta, peso);
     }
 
+    @Override
     public double calcularTiempoNecesario(Etapa etapa, Ciclista ciclista) {
-        return (double) Math.round((etapa.getValorDistancia() / this.calcularVelocidad(ciclista, etapa) * ciclista.Destreza()) * 100) / 100;
-    }
-
-    public String getTipo() {
-        return "BicicletaPrototipo";
+        double destreza = ciclista.Destreza();
+        double velocidad = calcularVelocidad(ciclista, etapa);
+        return (double) Math.round((etapa.getValorDistancia() / (velocidad * destreza)) * 100) / 100;
     }
 
 
