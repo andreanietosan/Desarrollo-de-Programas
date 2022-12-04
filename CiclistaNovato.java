@@ -6,7 +6,7 @@ public class CiclistaNovato extends Ciclista {
     @Override
     public double Destreza() {
         //destreza = (((habilidad del Ciclista + 2) / 120) * 10;
-        return (((getValorHabilidad() + 2.0) / 120) * 10);
+        return (double) Math.round ((((getValorHabilidad() + 2.0) / 120) * 10)*100)/100;
     }
 
 }

@@ -9,7 +9,7 @@ public class CiclistaEstrella extends Ciclista {
     @Override
     public double Destreza() {
         //destreza = (((habilidad del Ciclista + 6) / 140) * 10;
-        return (double) (((getValorHabilidad() + 6.0) / 140) * 10);
+        return (double) Math.round((((getValorHabilidad() + 6.0) / 140) * 10) * 100) / 100;
     }
 
     public int getSerPopular() {

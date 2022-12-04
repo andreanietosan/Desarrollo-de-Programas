@@ -122,7 +122,6 @@ public class Organizacion {
             for (Ciclista ciclista : listaCiclistasEquipos)
                 ciclCarrera.put(ciclista, equipo);
         }
-
     }
 
     public void mostrarCiclistasFinal() {

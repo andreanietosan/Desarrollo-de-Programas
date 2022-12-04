@@ -97,16 +97,6 @@ public abstract class Ciclista implements CiclistaInterface {
         return getHabilidad().getValor();
     }
 
-//    public Resultado getResultado(Etapa etapa) {
-//        Resultado res = null;
-//        int i = 0;
-//        while (i < resultados.size() && resultados.get(i).getEtapa() != etapa)
-//            i++;
-//        if (resultados.get(i).getEtapa() == etapa)
-//            res = resultados.get(i);
-//        return res;
-//    }
-
     public Resultado getResultado(Etapa etapa) {
         Resultado res = null;
         boolean enc = false;
