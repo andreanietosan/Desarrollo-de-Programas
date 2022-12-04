@@ -1,3 +1,9 @@
+/**
+ * El enum Habilidad indica las distintas habilidades que puede tener un ciclista,
+ * LENTA, NORMAL O BUENA.
+ *
+ * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
+ */
 public enum Habilidad {
     LENTA("Lenta", 4.0),
     NORMAL("Normal", 6.0),

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * En la clase Ciclista se encuentra toda la información de esta
+ * En la clase CiclistaInterface se encuentra toda la información de esta
  *
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
@@ -52,11 +52,6 @@ public abstract class Ciclista implements CiclistaInterface {
         return habilidad;
     }
 
-    /**
-     * Asigna una habilidad al Ciclista
-     *
-     * @param habilidad Habilidad que se le va asignar al Ciclista
-     */
     public void setHabilidad(Habilidad habilidad) {
         this.habilidad = habilidad;
     }
@@ -178,9 +173,6 @@ public abstract class Ciclista implements CiclistaInterface {
         }
     }
 
-    /**
-     * En este método se realiza toda la competición de la organización, en ella se ve en detalle cada etapa, quien participa, las posiciones, los premios finales, si hay algun abandonado o no y la clasificación final de ciclistas y equipos
-     */
     public void correr(Etapa etapa) {
 
         System.out.print(toString());
@@ -200,7 +192,6 @@ public abstract class Ciclista implements CiclistaInterface {
         }
         System.out.println("+++ La energía del ciclista " + getNombreCiclista() + " tras la carrera es " + getEnergia() + " +++");
         System.out.println("@@@");
-
     }
 
     /**

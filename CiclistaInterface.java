@@ -99,6 +99,11 @@ public interface CiclistaInterface {
      */
     public void setTiempoEtapa(double tiempoEtapa);
 
+    /**
+     * Devuelve el valor numérico de la habilidad del ciclista
+     *
+     * @return el valor de la habilidad
+     */
     public double getValorHabilidad();
 
     /**
@@ -144,6 +149,18 @@ public interface CiclistaInterface {
      */
     public Etapa getEtapaAbandonada();
 
+    /**
+     * Devuelve si el ciclsita abandona o no la etapa
+     *
+     * @return true o false
+     */
+    public boolean resultadoEtapaAbandono(Etapa etapa);
+
+    /**
+     * Devuelve el valor de la destreza de los ciclista, dependiendo del tipo de ciclista
+     *
+     * @return el valor de la destreza
+     */
     public abstract double Destreza();
 
 
@@ -154,5 +171,10 @@ public interface CiclistaInterface {
      * @param etapa  La etapa en la que se encuentra
      */
     public void participar(double tiempo, Etapa etapa);
+
+    /**
+     * En este método se realiza las diferentes competiciones de los ciclistas en las diferentes etapas
+     */
+    public void correr(Etapa etapa);
 
 }

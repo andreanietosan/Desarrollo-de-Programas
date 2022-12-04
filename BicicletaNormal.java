@@ -38,14 +38,12 @@ public class BicicletaNormal implements Bicicleta {
         return getPeso().getValor();
     }
 
-
     public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
         return (double) Math.round((ciclista.getValorHabilidad() * 100) / (peso.getValor() * etapa.getValorDificultad())*100)/100;
     }
 
     public double calcularTiempoNecesario(Etapa etapa, Ciclista ciclista) {
         return (double) Math.round((etapa.getValorDistancia() / this.calcularVelocidad(ciclista, etapa) * 60)*100)/100;
-
     }
 
     /**

@@ -1,3 +1,9 @@
+/**
+ * El enum Dificultad indica las distintas dificultades que puede tener una etapa,
+ * SENCILLA,NORMAL O COMPLEJA.
+ *
+ * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
+ */
 public enum Dificultad {
     SENCILLA("Sencilla", 0.9),
     NORMAL("Normal", 1.0),

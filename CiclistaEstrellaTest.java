@@ -20,6 +20,8 @@ public class CiclistaEstrellaTest {
     private CiclistaEstrella c3;
 
     private BicicletaNormal b1;
+    private BicicletaNormal b2;
+    private BicicletaNormal b3;
     private Equipo e1;
     private Equipo e2;
     private Equipo e3;
@@ -51,15 +53,20 @@ public class CiclistaEstrellaTest {
         e2 = new Equipo("Trek Segafredo Women", new ComparatorHabilidad().reversed(), new ComparatorPeso().reversed());
         e3 = new Equipo("Movistar Women", new ComparatorHabilidad(), new ComparatorPeso());
 
-        resultado= new ArrayList<Resultado>();
+        resultado = new ArrayList<Resultado>();
 
         c1 = new CiclistaEstrella("LIPPERT", Habilidad.NORMAL, 1160, e1);
         c2 = new CiclistaEstrella("BALSAMO", Habilidad.NORMAL, 1180, e2);
         c3 = new CiclistaEstrella("VAN VLEUTEN", Habilidad.NORMAL, 1200, e3);
 
         b1 = new BicicletaNormal("SCOTT CONTESSA ADDICT 15", Peso.NORMAL);
+        b2 = new BicicletaNormal("TREK Madone SLR 9 eTap Gen 7", Peso.LIGERA);
+        b3 = new BicicletaNormal("CANYON Aeroad CF SLX 8 Disc Di2", Peso.NORMAL);
 
         c1.setBicicleta(b1);
+        c2.setBicicleta(b2);
+        c3.setBicicleta(b3);
+
     }
 
     /**
@@ -80,11 +87,11 @@ public class CiclistaEstrellaTest {
 
     @Test
     public void PruebaGetTiempoTerminadas() {
-        res1 = new Resultado(etapa1,c1.getBicicleta().calcularTiempoNecesario(etapa1, c1),true);
+        res1 = new Resultado(etapa1, c1.getBicicleta().calcularTiempoNecesario(etapa1, c1), true);
         resultado.add(res1);
         c1.setResultados(resultado);
 
-        res2 = new Resultado(etapa2,c1.getBicicleta().calcularTiempoNecesario(etapa2, c1),true);
+        res2 = new Resultado(etapa2, c1.getBicicleta().calcularTiempoNecesario(etapa2, c1), true);
         resultado.add(res2);
         c1.setResultados(resultado);
 
@@ -93,11 +100,11 @@ public class CiclistaEstrellaTest {
 
     @Test
     public void PruebaGetEtapaAbandonada() {
-        res1 = new Resultado(etapa1,c1.getBicicleta().calcularTiempoNecesario(etapa1, c1),true);
+        res1 = new Resultado(etapa1, c1.getBicicleta().calcularTiempoNecesario(etapa1, c1), true);
         resultado.add(res1);
         c1.setResultados(resultado);
 
-        res2 = new Resultado(etapa2,c1.getBicicleta().calcularTiempoNecesario(etapa2, c1),false);
+        res2 = new Resultado(etapa2, c1.getBicicleta().calcularTiempoNecesario(etapa2, c1), false);
         resultado.add(res2);
         c1.setResultados(resultado);
 
@@ -106,7 +113,7 @@ public class CiclistaEstrellaTest {
 
     @Test
     public void PruebaGetResultado() {
-        res1 = new Resultado(etapa1,c1.getBicicleta().calcularTiempoNecesario(etapa1, c1),true);
+        res1 = new Resultado(etapa1, c1.getBicicleta().calcularTiempoNecesario(etapa1, c1), true);
         resultado.add(res1);
         c1.setResultados(resultado);
 
@@ -115,14 +122,24 @@ public class CiclistaEstrellaTest {
 
     @Test
     public void PruebaGetEtapasTerminadas() {
-        res1 = new Resultado(etapa1,c1.getBicicleta().calcularTiempoNecesario(etapa1, c1),true);
+        res1 = new Resultado(etapa1, c1.getBicicleta().calcularTiempoNecesario(etapa1, c1), true);
         resultado.add(res1);
         c1.setResultados(resultado);
 
-        res2 = new Resultado(etapa2,c1.getBicicleta().calcularTiempoNecesario(etapa2, c1),true);
+        res2 = new Resultado(etapa2, c1.getBicicleta().calcularTiempoNecesario(etapa2, c1), true);
         resultado.add(res2);
         c1.setResultados(resultado);
 
         assertEquals(2.0, c1.getEtapasTerminadas());
+    }
+
+    @Test
+    public void Pruebacorrer() {
+        c1.setTiempoEtapa(c1.getBicicleta().calcularTiempoNecesario(etapa1, c1));
+        c1.correr(etapa1);
+        c2.setTiempoEtapa(c2.getBicicleta().calcularTiempoNecesario(etapa1, c2));
+        c2.correr(etapa1);
+        c3.setTiempoEtapa(c3.getBicicleta().calcularTiempoNecesario(etapa1, c3));
+        c3.correr(etapa1);
     }
 }

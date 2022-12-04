@@ -2,7 +2,6 @@ import java.util.Comparator;
 
 /**
  * Realiza una comparación entre dos ciclistas a través del tiempo que tardan en terminar una etapa
- * Comparación ascendente
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
 public class ComparadorTiempoCiclista implements Comparator<Ciclista> {

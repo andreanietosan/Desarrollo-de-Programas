@@ -1,5 +1,3 @@
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
@@ -19,6 +17,8 @@ public class CiclistaNovatoTest {
     private CiclistaNovato c2;
     private CiclistaNovato c3;
     private BicicletaNormal b1;
+    private BicicletaNormal b2;
+    private BicicletaNormal b3;
     private Equipo e1;
     private Equipo e2;
     private Equipo e3;
@@ -57,8 +57,12 @@ public class CiclistaNovatoTest {
         c3 = new CiclistaNovato("SIERRA", Habilidad.BUENA, 1130, e3);
 
         b1 = new BicicletaNormal("SCOTT CONTESSA ADDICT 15", Peso.NORMAL);
+        b2 = new BicicletaNormal("TREK Madone SLR 9 eTap Gen 7", Peso.LIGERA);
+        b3 = new BicicletaNormal("CANYON Aeroad CF SLX 8 Disc Di2", Peso.NORMAL);
 
         c1.setBicicleta(b1);
+        c2.setBicicleta(b2);
+        c3.setBicicleta(b3);
     }
 
     /**
@@ -105,7 +109,7 @@ public class CiclistaNovatoTest {
 
     @Test
     public void PruebaGetResultado() {
-        res1 = new Resultado(etapa1,c1.getBicicleta().calcularTiempoNecesario(etapa1, c1),true);
+        res1 = new Resultado(etapa1, c1.getBicicleta().calcularTiempoNecesario(etapa1, c1), true);
         resultado.add(res1);
         c1.setResultados(resultado);
 
@@ -123,5 +127,15 @@ public class CiclistaNovatoTest {
         c1.setResultados(resultado);
 
         assertEquals(2.0, c1.getEtapasTerminadas());
+    }
+
+    @Test
+    public void Pruebacorrer() {
+        c1.setTiempoEtapa(c1.getBicicleta().calcularTiempoNecesario(etapa1, c1));
+        c1.correr(etapa1);
+        c2.setTiempoEtapa(c2.getBicicleta().calcularTiempoNecesario(etapa1, c2));
+        c2.correr(etapa1);
+        c3.setTiempoEtapa(c3.getBicicleta().calcularTiempoNecesario(etapa1, c3));
+        c3.correr(etapa1);
     }
 }

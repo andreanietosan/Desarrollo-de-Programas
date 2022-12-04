@@ -1,6 +1,15 @@
+/**
+ * Clase dedicada al CiclistaEstrella, subclase de Ciclista, el cuál se diferencia de los demás a través de su forma de calcular la destreza,
+ * esta clase además se caracteriza porque tiene un extra que es SerPopular, el cuál, caracteriza al ciclistaEstrella por su popularidad
+ *
+ * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
+ */
 public class CiclistaEstrella extends Ciclista {
     private int SerPopular;
 
+    /**
+     * Constructor por parámetros de la clase CiclistaEstrella
+     */
     public CiclistaEstrella(String nombreCiclista, Habilidad habilidad, double energia, Equipo equipo) {
         super(nombreCiclista, habilidad, energia, equipo);
         this.SerPopular = 6;
@@ -8,14 +17,23 @@ public class CiclistaEstrella extends Ciclista {
 
     @Override
     public double Destreza() {
-        //destreza = (((habilidad del Ciclista + 6) / 140) * 10;
         return (double) Math.round((((getValorHabilidad() + 6.0) / 140) * 10) * 100) / 100;
     }
 
+    /**
+     * Devuelve el valor de popularidad del ciclistaEstrella
+     *
+     * @return valor popularidad
+     */
     public int getSerPopular() {
         return SerPopular;
     }
 
+    /**
+     * Asigna el valor de la popularidad al ciclistaEstrella
+     *
+     * @param serPopular valor de la popularidad
+     */
     public void setSerPopular(int serPopular) {
         SerPopular = serPopular;
     }
@@ -35,6 +53,11 @@ public class CiclistaEstrella extends Ciclista {
         }
     }
 
+    /**
+     * Muestra en una cadena los atributos del ciclistaEstrella
+     *
+     * @return Un string con los atributos y características principales del ciclsitaEstrella
+     */
     public String toString() {
         return super.toString() + " <popularidad: " + getSerPopular() + ">";
     }

@@ -41,9 +41,18 @@ public interface EtapaInterface {
      */
     public void setDistancia(Distancia distancia);
 
-
+    /**
+     * Devuelve el valor numérico de la dificultad de una etapa
+     *
+     * @return valor de la dificultad
+     */
     public double getValorDificultad();
 
+    /**
+     * Devuelve el valor numérico de la distancia de una etapa
+     *
+     * @return valor de la distancia
+     */
     public double getValorDistancia();
 
 }

@@ -111,4 +111,10 @@ public interface EquipoInterface {
      * @return Tiempo medio de cada equipo
      */
     public double calcularMediaEquipo();
+
+    /**
+     * Enviar a la organizacion los ciclistas y las bicicletas que van a competir de cada equipo
+     * se envia a la organizacion cuando no haya ciclistas abandonados
+     */
+    public ArrayList<Ciclista> enviarACarrera();
 }

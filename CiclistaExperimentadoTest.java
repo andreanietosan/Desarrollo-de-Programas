@@ -19,6 +19,8 @@ public class CiclistaExperimentadoTest {
     private CiclistaExperimentado c2;
     private CiclistaExperimentado c3;
     private BicicletaNormal b1;
+    private BicicletaNormal b2;
+    private BicicletaNormal b3;
     private Equipo e1;
     private Equipo e2;
     private Equipo e3;
@@ -57,8 +59,12 @@ public class CiclistaExperimentadoTest {
         c3 = new CiclistaExperimentado("NORSGAARD", Habilidad.NORMAL, 1145, e3);
 
         b1 = new BicicletaNormal("SCOTT CONTESSA ADDICT 15", Peso.NORMAL);
+        b2 = new BicicletaNormal("TREK Madone SLR 9 eTap Gen 7", Peso.LIGERA);
+        b3 = new BicicletaNormal("CANYON Aeroad CF SLX 8 Disc Di2", Peso.NORMAL);
 
         c1.setBicicleta(b1);
+        c2.setBicicleta(b2);
+        c3.setBicicleta(b3);
     }
 
     /**
@@ -123,5 +129,15 @@ public class CiclistaExperimentadoTest {
         c1.setResultados(resultado);
 
         assertEquals(1.0, c1.getEtapasTerminadas());
+    }
+
+    @Test
+    public void Pruebacorrer() {
+        c1.setTiempoEtapa(c1.getBicicleta().calcularTiempoNecesario(etapa1, c1));
+        c1.correr(etapa1);
+        c2.setTiempoEtapa(c2.getBicicleta().calcularTiempoNecesario(etapa1, c2));
+        c2.correr(etapa1);
+        c3.setTiempoEtapa(c3.getBicicleta().calcularTiempoNecesario(etapa1, c3));
+        c3.correr(etapa1);
     }
 }

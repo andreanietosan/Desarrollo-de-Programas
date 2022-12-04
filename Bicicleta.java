@@ -1,4 +1,12 @@
+/**
+ * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
+ */
 public interface Bicicleta {
+    /**
+     * Devuelve el atributo nombre de la bicicleta de la clase Bicicleta
+     *
+     * @return El atributo nombreBicicleta de la Bicicleta
+     */
     public String getNombreBicicleta();
 
     /**
@@ -22,6 +30,11 @@ public interface Bicicleta {
      */
     public void setPeso(Peso peso);
 
+    /**
+     * Devuelve el valor numérico del peso de la clase Bicicleta
+     *
+     * @return El atributo valorPeso de la Bicicleta
+     */
     public double getValorPeso();
 
     /**

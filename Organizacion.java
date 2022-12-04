@@ -51,10 +51,34 @@ public class Organizacion {
     }
 
     /**
+     * Devuelve la lista de equipos de la organización
+     *
+     * @return lista de equipos
+     */
+    public List<Equipo> getEquipos() {
+        return equipos;
+    }
+
+    /**
      * Ordena los equipos que van a competir
      */
     public void ordenarEquipos() {
         Collections.sort(equipos, new ComparadorEquipos());
+    }
+
+    /**
+     * Muestra los ciclistas y sus equipos que van a competir.
+     * Este método es usado en las pruebas
+     */
+    public void mostrarCiclistas() {
+        Iterator it = ciclCarrera.entrySet().iterator();
+
+        while (it.hasNext()) {
+            Map.Entry datos = (Map.Entry) it.next(); //dato contiene la entrada del haspmap // key(ciclista) valor(equipo)
+            Ciclista ciclista = (Ciclista) datos.getKey(); //la entrada se ha declarado con este nombre (datos.getkey)
+            Equipo equipo = (Equipo) datos.getValue();
+            System.out.println("Ciclista: " + ciclista.getNombreCiclista() + " Equipo: " + equipo.getNombreEquipo());
+        }
     }
 
     /**
@@ -115,6 +139,9 @@ public class Organizacion {
         }
     }
 
+    /**
+     * Recibe a los ciclistas que vana competir que son enviados de sus equipos
+     */
     public void recibir() {
         ArrayList<Ciclista> listaCiclistasEquipos = new ArrayList<>();
         for (Equipo equipo : equipos) {
@@ -124,6 +151,9 @@ public class Organizacion {
         }
     }
 
+    /**
+     * Muestra la clasificación final de los ciclistas que han competido
+     */
     public void mostrarCiclistasFinal() {
         //lista auxiliar para reordenar los ciclistas
         ArrayList<Ciclista> ciclistaCarrera = new ArrayList<>();
@@ -173,7 +203,7 @@ public class Organizacion {
     }
 
     /**
-     * En este método se realiza toda la competición de la organización, en ella se ve en detalle cada etapa, quien participa, las posiciones, los premios finales, si hay algun abandonado o no y la clasificación final de ciclistas y equipos
+     * En este método se realiza toda la competición de la organización
      */
     public void competicion() {
         //lista auxiliar para reordenar los ciclistas
@@ -268,7 +298,6 @@ public class Organizacion {
         competicion();
         mostrarCiclistasFinal();
         ordenarEquipos();
-
         mostrarEquiposFinal();
     }
 

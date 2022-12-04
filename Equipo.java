@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 /**
- * En la clase Ciclista se encuentra toda la información de esta
+ * En la clase EquipoInterface se encuentra toda la información de esta
  *
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
@@ -107,10 +107,6 @@ public class Equipo implements EquipoInterface {
         return (double) Math.round(media * 100) / 100;
     }
 
-    /**
-     * enviar a la organizacion los ciclistas y las bicicletas
-     * se envia a la organizacion cuando no haya abandonado
-     */
     public ArrayList<Ciclista> enviarACarrera() {
         ArrayList<Ciclista> aux = new ArrayList<>();
         int contBici=0;

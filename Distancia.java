@@ -1,3 +1,9 @@
+/**
+ * El enum Distancia indica las distintas distancias que puede tener una etapa,
+ * CORTA, INTERMEDIA O LARGA.
+ *
+ * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
+ */
 public enum Distancia {
     CORTA("Corta", 150.0),
     INTERMEDIA("Intermedia", 200.0),

@@ -1,5 +1,5 @@
 /**
- * En la clase Etapa se encuentra toda la información de esta
+ * En la clase EtapaInterface se encuentra toda la información de esta
  *
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
@@ -22,60 +22,29 @@ public class Etapa implements EtapaInterface{
         this.distancia = distancia;
     }
 
-    /**
-     * Devuelve el atributo nombre de la clase Etapa
-     *
-     * @return El atributo nombre de la Etapa
-     */
     public String getNombreEtapa() {
         return nombreEtapa;
     }
 
-    /**
-     * Asigna un nombre a la Etapa
-     *
-     * @param nombreEtapa Nombre que se le va asignar a la Etapa
-     */
     public void setNombreEtapa(String nombreEtapa) {
         this.nombreEtapa = nombreEtapa;
     }
 
-    /**
-     * Devuelve el atributo dificultad de la clase Etapa
-     *
-     * @return El atributo dificultad de la Etapa
-     */
     public Dificultad getDificultad() {
         return dificultad;
     }
 
-    /**
-     * Asigna una dificultad a la Etapa
-     *
-     * @param dificultad Dificultad que se le va asignar a la Etapa
-     */
     public void setDificultad(Dificultad dificultad) {
         this.dificultad = dificultad;
     }
 
-    /**
-     * Devuelve el atributo distancia de la clase Etapa
-     *
-     * @return El atributo distancia de la Etapa
-     */
     public Distancia getDistancia() {
         return distancia;
     }
 
-    /**
-     * Asigna una distancia a la Etapa
-     *
-     * @param distancia Distancia que se le va asignar a la Etapa
-     */
     public void setDistancia(Distancia distancia) {
         this.distancia = distancia;
     }
-
 
     public double getValorDificultad() {
         return getDificultad().getValor();

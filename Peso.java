@@ -1,3 +1,9 @@
+/**
+ * El enum Peso indica los distintos pesos que puede tener una bicicleta,
+ * LIGERA, NORMAL O PESADA.
+ *
+ * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
+ */
 public enum Peso {
     LIGERA("Ligera", 7.35),
     NORMAL("Normal", 7.50),
