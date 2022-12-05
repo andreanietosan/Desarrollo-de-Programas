@@ -90,17 +90,21 @@ public class OrganizacionTest {
         assertEquals("DSM Women", organizacion.getEquipos().get(1).getNombreEquipo());
     }
 
-    //    public void recibir() {
-//        ArrayList<Ciclista> listaCiclistasEquipos = new ArrayList<>();
-//        for (Equipo equipo : equipos) {
-//            listaCiclistasEquipos = equipo.enviarACarrera();
-//            for (Ciclista ciclista : listaCiclistasEquipos)
-//                ciclCarrera.put(ciclista, equipo);
-//        }
-//    }
     @Test
     public void PruebaRecibir() {
+        ArrayList<Ciclista> aux = new ArrayList<>();
         organizacion.recibir();
-        organizacion.mostrarCiclistas();
+
+        Iterator it = organizacion.getCiclCarrera().entrySet().iterator();
+
+        while (it.hasNext()) {
+            Map.Entry datos = (Map.Entry) it.next(); //dato contiene la entrada del haspmap // key(ciclista) valor(equipo)
+            Ciclista ciclista = (Ciclista) datos.getKey(); //la entrada se ha declarado con este nombre (datos.getkey)
+            aux.add(ciclista);
+        }
+        assertEquals("LABOUS", aux.get(0).getNombreCiclista());
+        assertEquals("BALSAMO", aux.get(1).getNombreCiclista());
+        assertEquals("LONGO-BORGHINI", aux.get(2).getNombreCiclista());
+        assertEquals("LIPPERT", aux.get(3).getNombreCiclista());
     }
 }

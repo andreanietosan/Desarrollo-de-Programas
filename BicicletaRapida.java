@@ -21,7 +21,7 @@ public class BicicletaRapida extends BicicletaNormal {
      *
      * @param ciclista Ciclista del que se usa su habilidad
      * @param etapa    Etapa de la que se usa la dificultad
-     * @return  La velocidad calculada
+     * @return La velocidad calculada
      */
     @Override
     public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
@@ -37,6 +37,34 @@ public class BicicletaRapida extends BicicletaNormal {
      */
     public String toString() {
         return super.toString() + "<velocidad extra: " + velocidadExtra + ">";
+    }
+
+    /**
+     * Redefinicion del metodo equals() en la clase BicicletaRapida
+     *
+     * @return true si las 2 BicicletaRapida comparadas son iguales, false en otro caso
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof BicicletaRapida))
+            return false;
+        BicicletaRapida other = (BicicletaRapida) obj;
+        return super.equals(other) && getNombreBicicleta().equals(other.getNombreBicicleta());
+    }
+
+    /**
+     * Devuelve un valor entero que representa de forma inequívoca a un objeto de la clase BicicletaNormal
+     *
+     * @return un valor entero
+     */
+    @Override
+    public int hashCode() {
+        int resultado = 7;
+        resultado = 3 * resultado +super.hashCode();
+        resultado = 5 * resultado + getNombreBicicleta().hashCode();
+        return resultado;
     }
 
 }

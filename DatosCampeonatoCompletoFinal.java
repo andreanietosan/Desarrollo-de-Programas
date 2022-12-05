@@ -35,9 +35,9 @@ public class DatosCampeonatoCompletoFinal {
 
         //constructor de bicicletas pide ( String nombre, Peso peso)
         //constructor de bicicletas rápidas pide ( String nombre, Peso peso, double velocidad extra)
-        dSMWomen.anadirBicicleta(new BicicletaRapida("SCOTT CONTESSA ADDICT eRIDE 15", Peso.LIGERA, 0.3));
-        dSMWomen.anadirBicicleta(new BicicletaPrototipo("SCOTT CONTESSA ADDICT 15", Peso.NORMAL));
-        dSMWomen.anadirBicicleta(new BicicletaNormal("SCOTT CONTESSA ADDICT 15", Peso.NORMAL));
+        dSMWomen.anadirBicicleta(new BicicletaRapida("SCOTT CONTESSA ADDICT eRIDE 15",Peso.LIGERA, 0.3));
+        dSMWomen.anadirBicicleta(new BicicletaPrototipo("SCOTT CONTESSA ADDICT 15",Peso.NORMAL));
+        dSMWomen.anadirBicicleta(new BicicletaNormal("SCOTT CONTESSA ADDICT RC 15",Peso.PESADA));
         dSMWomen.ordenarBicicletas();
         //constructor de ciclistas pide (String nombre , Habilidad habilidad , double energia, Equipo equipo)
         dSMWomen.anadirCiclista(new CiclistaNovato("WIEBES", Habilidad.NORMAL, 1190, dSMWomen));

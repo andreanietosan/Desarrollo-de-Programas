@@ -203,5 +203,32 @@ public abstract class Ciclista implements CiclistaInterface {
         return "<" + getClass().getName() + ":" + getNombreCiclista() + "> <energía:" + getEnergia() + "> <habilidad:" + getHabilidad() + "> <tiempo acumulado sin abandonar:" + getTiempoTerminadas() + "> <abandonado:" + comprobarAbandono() + ">";
     }
 
+    /**
+     * Redefinicion del metodo equals() en la clase Ciclista
+     *
+     * @return true si los 2 ciclistas comparados son iguales, false en otro caso
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Ciclista))
+            return false;
+        Ciclista other = (Ciclista) obj;
+        return getNombreCiclista().equals(other.getNombreCiclista());
+    }
+
+    /**
+     * Devuelve un valor entero que representa de forma inequívoca a un objeto de la clase Ciclista
+     *
+     * @return un valor entero
+     */
+    @Override
+    public int hashCode() {
+        int resultado = 7;
+        resultado = 3 * resultado + getNombreCiclista().hashCode();
+        return resultado;
+    }
+
 
 }

@@ -109,14 +109,13 @@ public class Equipo implements EquipoInterface {
 
     public ArrayList<Ciclista> enviarACarrera() {
         ArrayList<Ciclista> aux = new ArrayList<>();
-        int contBici=0;
+        int contBici = 0;
         for (Ciclista ciclista : ciclistas) {
-            if (!ciclista.comprobarAbandono()){
+            if (!ciclista.comprobarAbandono()) {
                 ciclista.setBicicleta(bicicletas.get(contBici));
                 aux.add(ciclista);
-                contBici+=1;
-            }
-            else
+                contBici += 1;
+            } else
                 anadirCiclistaAbandonado(ciclista);
         }
         return aux;
@@ -131,6 +130,11 @@ public class Equipo implements EquipoInterface {
         return "%%% " + getNombreEquipo() + " %%% Media Minutos de Ciclistas sin abandonar " + getTiempoTotal() + " %%%";
     }
 
+    /**
+     * Redefinicion del metodo equals() en la clase Equipo
+     *
+     * @return true si los 2 equipos comparados son iguales, false en otro caso
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -140,4 +144,18 @@ public class Equipo implements EquipoInterface {
         Equipo other = (Equipo) obj;
         return getNombreEquipo().equals(other.getNombreEquipo());
     }
+
+    /**
+     * Devuelve un valor entero que representa de forma inequívoca a un objeto de la clase Equipo
+     *
+     * @return un valor entero
+     */
+    @Override
+    public int hashCode() {
+        int resultado = 7;
+        resultado = 3 * resultado + getNombreEquipo().hashCode();
+        return resultado;
+    }
+
+
 }

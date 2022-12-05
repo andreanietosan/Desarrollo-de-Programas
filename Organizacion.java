@@ -60,25 +60,23 @@ public class Organizacion {
     }
 
     /**
+     * Devuelve el mapa de los ciclistas y su equipo de la organización
+     *
+     * @return el mapa de ciclista y sus equipos
+     */
+    public HashMap<Ciclista, Equipo> getCiclCarrera() {
+        return ciclCarrera;
+    }
+
+    public void setCiclCarrera(HashMap<Ciclista, Equipo> ciclCarrera) {
+        this.ciclCarrera = ciclCarrera;
+    }
+
+    /**
      * Ordena los equipos que van a competir
      */
     public void ordenarEquipos() {
         Collections.sort(equipos, new ComparadorEquipos());
-    }
-
-    /**
-     * Muestra los ciclistas y sus equipos que van a competir.
-     * Este método es usado en las pruebas
-     */
-    public void mostrarCiclistas() {
-        Iterator it = ciclCarrera.entrySet().iterator();
-
-        while (it.hasNext()) {
-            Map.Entry datos = (Map.Entry) it.next(); //dato contiene la entrada del haspmap // key(ciclista) valor(equipo)
-            Ciclista ciclista = (Ciclista) datos.getKey(); //la entrada se ha declarado con este nombre (datos.getkey)
-            Equipo equipo = (Equipo) datos.getValue();
-            System.out.println("Ciclista: " + ciclista.getNombreCiclista() + " Equipo: " + equipo.getNombreEquipo());
-        }
     }
 
     /**
@@ -286,7 +284,6 @@ public class Organizacion {
                     System.out.println("¡¡¡ Ha abandonado " + c.getNombreCiclista() + " - Tiempo: " + c.getEnergia() + " - Además ha abandonado para el resto del Campeonato !!!");
             }
         }
-
     }
 
     /**

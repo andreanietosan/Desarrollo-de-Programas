@@ -62,4 +62,32 @@ public class CiclistaEstrella extends Ciclista {
         return super.toString() + " <popularidad: " + getSerPopular() + ">";
     }
 
+    /**
+     * Redefinicion del metodo equals() en la clase CiclistaEstrella
+     *
+     * @return true si los 2 ciclistaEstrella comparados son iguales, false en otro caso
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof CiclistaEstrella))
+            return false;
+        CiclistaEstrella other = (CiclistaEstrella) obj;
+        return super.equals(other) && getNombreCiclista().equals(other.getNombreCiclista());
+    }
+
+    /**
+     * Devuelve un valor entero que representa de forma inequívoca a un objeto de la clase CiclistaEstrella
+     *
+     * @return un valor entero
+     */
+    @Override
+    public int hashCode() {
+        int resultado = 7;
+        resultado = 3 * resultado + super.hashCode();
+        resultado = 5 * resultado + getNombreCiclista().hashCode();
+        return resultado;
+    }
+
 }

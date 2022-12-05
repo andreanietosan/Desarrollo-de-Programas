@@ -28,5 +28,33 @@ public class BicicletaPrototipo extends BicicletaNormal {
         return (double) Math.round((etapa.getValorDistancia() / (velocidad * destreza)) * 100) / 100;
     }
 
+    /**
+     * Redefinicion del metodo equals() en la clase BicicletaPrototipo
+     *
+     * @return true si las 2 BicicletaRapida comparadas son iguales, false en otro caso
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof BicicletaPrototipo))
+            return false;
+        BicicletaPrototipo other = (BicicletaPrototipo) obj;
+        return super.equals(other) && getNombreBicicleta().equals(other.getNombreBicicleta());
+    }
+
+    /**
+     * Devuelve un valor entero que representa de forma inequívoca a un objeto de la clase BicicletaPrototipo
+     *
+     * @return un valor entero
+     */
+    @Override
+    public int hashCode() {
+        int resultado = 7;
+        resultado = 3 * resultado + super.hashCode();
+        resultado = 5 * resultado + getNombreBicicleta().hashCode();
+        return resultado;
+    }
+
 
 }

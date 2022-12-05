@@ -39,11 +39,11 @@ public class BicicletaNormal implements Bicicleta {
     }
 
     public double calcularVelocidad(Ciclista ciclista, Etapa etapa) {
-        return (double) Math.round((ciclista.getValorHabilidad() * 100) / (peso.getValor() * etapa.getValorDificultad())*100)/100;
+        return (double) Math.round((ciclista.getValorHabilidad() * 100) / (peso.getValor() * etapa.getValorDificultad()) * 100) / 100;
     }
 
     public double calcularTiempoNecesario(Etapa etapa, Ciclista ciclista) {
-        return (double) Math.round((etapa.getValorDistancia() / this.calcularVelocidad(ciclista, etapa) * 60)*100)/100;
+        return (double) Math.round((etapa.getValorDistancia() / this.calcularVelocidad(ciclista, etapa) * 60) * 100) / 100;
     }
 
     /**
@@ -53,6 +53,33 @@ public class BicicletaNormal implements Bicicleta {
      */
     public String toString() {
         return "<" + getClass().getName() + ">: <peso:" + getPeso() + ")>";
+    }
+
+    /**
+     * Redefinicion del metodo equals() en la clase BicicletaNormal
+     *
+     * @return true si las 2 bicicletaNormal comparadas son iguales, false en otro caso
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof BicicletaNormal))
+            return false;
+        BicicletaNormal other = (BicicletaNormal) obj;
+        return getNombreBicicleta().equals(other.getNombreBicicleta());
+    }
+
+    /**
+     * Devuelve un valor entero que representa de forma inequívoca a un objeto de la clase BicicletaNormal
+     *
+     * @return un valor entero
+     */
+    @Override
+    public int hashCode() {
+        int resultado = 7;
+        resultado = 3 * resultado + getNombreBicicleta().hashCode();
+        return resultado;
     }
 
 

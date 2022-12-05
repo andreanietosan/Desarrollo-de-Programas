@@ -134,20 +134,6 @@ public class EquipoTest {
         assertEquals(equipo2.getBicicletas().get(1).getNombreBicicleta(),equipo3.getBicicletas().get(1).getNombreBicicleta());
     }
 
-//    public ArrayList<Ciclista> enviarACarrera() {
-//        ArrayList<Ciclista> aux = new ArrayList<>();
-//        int contBici=0;
-//        for (Ciclista ciclista : ciclistas) {
-//            if (!ciclista.comprobarAbandono()){
-//                ciclista.setBicicleta(bicicletas.get(contBici));
-//                aux.add(ciclista);
-//                contBici+=1;
-//            }
-//            else
-//                anadirCiclistaAbandonado(ciclista);
-//        }
-//        return aux;
-//    }
     @Test
     public void PruebaEnviarACarrera(){
         ArrayList<Ciclista> aux = new ArrayList<>();

@@ -134,10 +134,15 @@ public class CiclistaExperimentadoTest {
     @Test
     public void Pruebacorrer() {
         c1.setTiempoEtapa(c1.getBicicleta().calcularTiempoNecesario(etapa1, c1));
-        c1.correr(etapa1);
+        assertEquals(118.52, c1.getBicicleta().calcularVelocidad(c1, etapa1));
+        assertEquals(101.25, c1.getTiempoEtapa());
+
         c2.setTiempoEtapa(c2.getBicicleta().calcularTiempoNecesario(etapa1, c2));
-        c2.correr(etapa1);
+        assertEquals(90.7, c2.getBicicleta().calcularVelocidad(c2, etapa1));
+        assertEquals(132.3, c2.getTiempoEtapa());
+
         c3.setTiempoEtapa(c3.getBicicleta().calcularTiempoNecesario(etapa1, c3));
-        c3.correr(etapa1);
+        assertEquals(118.52, c3.getBicicleta().calcularVelocidad(c1, etapa1));
+        assertEquals(135.0, c3.getTiempoEtapa());
     }
 }

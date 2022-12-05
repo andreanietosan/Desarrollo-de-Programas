@@ -3,7 +3,7 @@
  *
  * @author (Andrea Nieto Sánchez, Ismael Rodríguez Velarde)
  */
-public class Etapa implements EtapaInterface{
+public class Etapa implements EtapaInterface {
 
     private String nombreEtapa;
     private Dificultad dificultad;
@@ -63,6 +63,11 @@ public class Etapa implements EtapaInterface{
         return "<etapa:" + getNombreEtapa() + "> <dificultad:" + getDificultad() + "> <distancia:" + getDistancia() + ")>";
     }
 
+    /**
+     * Redefinicion del metodo equals() en la clase Etapa
+     *
+     * @return true si las 2 etapas comparadas son iguales, false en otro caso
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -71,5 +76,17 @@ public class Etapa implements EtapaInterface{
             return false;
         Etapa other = (Etapa) obj;
         return getNombreEtapa().equals(other.getNombreEtapa());
+    }
+
+    /**
+     * Devuelve un valor entero que representa de forma inequívoca a un objeto de la clase Etapa
+     *
+     * @return un valor entero
+     */
+    @Override
+    public int hashCode() {
+        int resultado = 7;
+        resultado = 3 * resultado + getNombreEtapa().hashCode();
+        return resultado;
     }
 }

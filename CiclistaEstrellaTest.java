@@ -19,7 +19,7 @@ public class CiclistaEstrellaTest {
     private CiclistaEstrella c2;
     private CiclistaEstrella c3;
 
-    private BicicletaNormal b1;
+    private BicicletaPrototipo b1;
     private BicicletaNormal b2;
     private BicicletaNormal b3;
     private Equipo e1;
@@ -59,7 +59,7 @@ public class CiclistaEstrellaTest {
         c2 = new CiclistaEstrella("BALSAMO", Habilidad.NORMAL, 1180, e2);
         c3 = new CiclistaEstrella("VAN VLEUTEN", Habilidad.NORMAL, 1200, e3);
 
-        b1 = new BicicletaNormal("SCOTT CONTESSA ADDICT 15", Peso.NORMAL);
+        b1 = new BicicletaPrototipo("SCOTT CONTESSA ADDICT 15", Peso.NORMAL);
         b2 = new BicicletaNormal("TREK Madone SLR 9 eTap Gen 7", Peso.LIGERA);
         b3 = new BicicletaNormal("CANYON Aeroad CF SLX 8 Disc Di2", Peso.NORMAL);
 
@@ -95,7 +95,7 @@ public class CiclistaEstrellaTest {
         resultado.add(res2);
         c1.setResultados(resultado);
 
-        assertEquals(285.0, c1.getTiempoTerminadas());
+        assertEquals(5.53, c1.getTiempoTerminadas());
     }
 
     @Test
@@ -136,10 +136,15 @@ public class CiclistaEstrellaTest {
     @Test
     public void Pruebacorrer() {
         c1.setTiempoEtapa(c1.getBicicleta().calcularTiempoNecesario(etapa1, c1));
-        c1.correr(etapa1);
+        assertEquals(88.89, c1.getBicicleta().calcularVelocidad(c1, etapa1));
+        assertEquals(2.62, c1.getTiempoEtapa());
+
         c2.setTiempoEtapa(c2.getBicicleta().calcularTiempoNecesario(etapa1, c2));
-        c2.correr(etapa1);
+        assertEquals(90.7, c2.getBicicleta().calcularVelocidad(c2, etapa1));
+        assertEquals(132.3, c2.getTiempoEtapa());
+
         c3.setTiempoEtapa(c3.getBicicleta().calcularTiempoNecesario(etapa1, c3));
-        c3.correr(etapa1);
+        assertEquals(88.89, c3.getBicicleta().calcularVelocidad(c1, etapa1));
+        assertEquals(135.0, c3.getTiempoEtapa());
     }
 }
