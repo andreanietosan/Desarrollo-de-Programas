@@ -9,4 +9,4 @@ PURPOSE OF PROJECT:
 VERSION or DATE:
 HOW TO START THIS PROJECT: CiclismoDemo
 AUTHORS: Andrea Nieto Sánchez, Ismael Rodríguez Velarde
-USER INSTRUCTIONS: Extras: los comparadores
+USER INSTRUCTIONS: Extras: Uso de la funcionalidad de Git, uso de iterator, tipo Enum, uso de interfaces y pruebas unitarias
