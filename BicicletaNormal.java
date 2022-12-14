@@ -52,7 +52,7 @@ public class BicicletaNormal implements Bicicleta {
      * @return Un string con los atributos y características principales de la bicibleta
      */
     public String toString() {
-        return "<" + getClass().getName() + ">: <peso:" + getPeso() + ")>";
+        return "<" + getClass().getName() + ": " + getNombreBicicleta() + "> <peso:" + getPeso() + ")>";
     }
 
     /**

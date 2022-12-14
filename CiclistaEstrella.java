@@ -44,7 +44,7 @@ public class CiclistaEstrella extends Ciclista {
 
         if (getTotalEtapas() < 1)
             SerPopular = 6;
-        else if (super.getTiempoEtapa() < 160.0) {
+        else if (super.getTiempoEtapa() < 160.0 && super.getEnergia() > 0.0) {
             SerPopular += 4;
             System.out.println("+++ La popularidad del ciclista " + getNombreCiclista() + " ha aumentado y ahora su nivel de popularidad es de: " + getSerPopular() + " unidades\n" + "@@@");
         } else {
